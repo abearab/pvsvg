@@ -157,7 +157,7 @@ class Network:
         """
         Draws the network into an html canvas.
         """
-        html = self.initialize_html(filename)
+        html = self.initialize_html()
 
         with open(filename, "w") as f:
             f.write(html)
