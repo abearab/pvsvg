@@ -125,7 +125,7 @@ class Network:
 
         self._edge_json = json.dumps(self._edge_attrs)
 
-    def _initialize_html(self, filename: str):
+    def initialize_html(self):
         """
         Initializes the html file.
         """
@@ -150,11 +150,14 @@ class Network:
             "OPTIONS_PHYSICS": self._json_physics,
         }
         html = template.render(data)
-        with open(filename, "w") as f:
-            f.write(html)
+
+        return html
 
     def draw(self, filename: str):
         """
         Draws the network into an html canvas.
         """
-        self._initialize_html(filename)
+        html = self.initialize_html(filename)
+
+        with open(filename, "w") as f:
+            f.write(html)
